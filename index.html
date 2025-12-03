@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheesecake y Carlota de Guayaba</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7e6f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #qr-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #main-content {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .cake-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .cake-card {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 280px;
+    }
+
+    .cake-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    h1, h2, h3 {
+      color: #ff5599;
+    }
+
+    ul {
+      text-align: left;
+      margin-top: 30px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sección de QR -->
+  <div id="qr-section">
+    <h2>Escanea este código QR para acceder a la página</h2>
+    <div id="qrcode"></div>
+  </div>
+
+  <!-- Sección principal -->
+  <div id="main-content">
+    <h1>Cheesecake y Carlota de Guayaba</h1>
+    <p>Cheesecake y Carlota de Guayaba❤️</p>
+
+    <div class="cake-container">
+
+      <!-- Cheesecake de guayaba -->
+      <div class="cake-card">
+        <h3>Cheesecake de Guayaba</h3>
+        <img src="https://bing.com/th?id=OSK.b39843121ee4d89081ff5d23067f0a1e" 
+             alt="Cheesecake de guayaba">
+        <p>Un cheesecake suave y cremoso con el toque dulce y tropical de la guayaba.</p>
+      </div>
+
+      <!-- Carlota / Pay de guayaba -->
+      <div class="cake-card">
+        <h3>Carlota de Guayaba</h3>
+        <img src="https://noticias-ahora.com/wp-content/uploads/2017/09/gauaya.jpg" 
+             alt="Carlota de guayaba">
+        <p>Una carlota cremosa y fresca, preparada con el exquisito sabor de la guayaba.</p>
+      </div>
+
+    </div>
+
+    <h2>Integrantes</h2>
+    <ul>
+      <li>Zugeili Rubi Hernández Soto</li>
+      <li>Miguel Ángel Martínez Jiménez</li>
+      <li>Valeria Miranda del Río</li>
+      <li>Josmar Narváez Blas</li>
+      <li>Yenifer Quintanar Chacón</li>
+    </ul>
+
+  </div>
+
+  <!-- Librería para generar QR -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    // Generar QR dinámicamente con la URL actual
+    var urlPagina = window.location.href;
+    new QRCode(document.getElementById("qrcode"), {
+        text: urlPagina,
+        width: 260,
+        height: 260,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // Mostrar postres después de 9 segundos (9000 ms)
+    setTimeout(() => {
+      document.getElementById("qr-section").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 9000);
+  </script>
+</body>
+</html>
